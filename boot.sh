@@ -166,7 +166,7 @@ sleep 2
 #boot-agrs , maybe....
 echo ""
 echo "[*] setenv boot-args usbserial=enable"
-"$IRECOVERY" -c "setenv boot-args usbserial=enable"
+"$IRECOVERY" -c "setenvnp boot-args usbserial=enable"
 sleep 1
 "$IRECOVERY" -c "saveenv"
 
