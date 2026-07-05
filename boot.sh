@@ -84,6 +84,7 @@ fi
 DEVICE_DIR="$MODEL"
 
 # Normalize iPad 8 board names to match the folder names (J171AP/J172AP instead of J171aAP/J172aAP)
+# Don't ask why, because I don't like the two A's next to each other
 case "$DEVICE_DIR" in
     *J171aAP*|*J171AAP*|*j171aAP*|*j171AAP*)
         DEVICE_DIR="J171AP"
