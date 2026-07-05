@@ -162,10 +162,12 @@ echo "[+] Device connected in recovery mode."
 
 "$IRECOVERY" -q | grep -E "PRODUCT:|MODEL:|MODE:" 2>/dev/null
 
+sleep 2
 #boot-agrs , maybe....
 echo ""
 echo "[*] setenv boot-args usbserial=enable"
-"$IRECOVERY" -c "setenv boot-args usbserial=enable"
+"$IRECOVERY" -c "setenvnp boot-args usbserial=enable"
+sleep 1
 "$IRECOVERY" -c "saveenv"
 
 if [ $? -ne 0 ]; then
