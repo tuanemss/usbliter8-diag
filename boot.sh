@@ -70,7 +70,7 @@ esac
 if [ -z "$SOC_DIR" ]; then
     case "$MODEL" in
         # A12 Board IDs: N84AP (XR), D321AP (XS), D331PAP/D331AP (XS Max), J210AP/J211AP (Mini 5), J217AP/J218AP (Air 3), J171AP/J172AP (iPad 8)
-        *N84AP*|*D321AP*|*D331PAP*|*D331AP*|*J210AP*|*J211AP*|*J217AP*|*J218AP*|*J171AP*|*J172AP*)
+        *N841AP*|*D321AP*|*D331PAP*|*D331AP*|*J210AP*|*J211AP*|*J217AP*|*J218AP*|*J171AP*|*J172AP*)
             SOC_DIR="t8020"
             ;;
         # A13 Board IDs: N104AP (11), D421AP (11 Pro), D431AP (11 Pro Max), D79AP (SE 2020), J181AP/J182AP (iPad 9)
@@ -86,7 +86,7 @@ DEVICE_DIR="$MODEL"
 
 if [ -z "$DEVICE_DIR" ] && [ -n "$PRODUCT" ]; then
     case "$PRODUCT" in
-        *IPHONE11,8*)            DEVICE_DIR="N84AP" ;;   # iPhone XR
+        *IPHONE11,8*)            DEVICE_DIR="N841AP" ;;   # iPhone XR
         *IPHONE11,2*)            DEVICE_DIR="D321AP" ;;  # iPhone XS
         *IPHONE11,4*|*IPHONE11,6*) DEVICE_DIR="D331PAP" ;; # iPhone XS Max
         *IPHONE12,1*)            DEVICE_DIR="N104AP" ;;  # iPhone 11
