@@ -31,3 +31,4 @@ This tool helps to boot A12/A13 into Diag mode after use `usbliter8`.
 * **[lukezgd](https://github.com/LukeZGD)**: precompiled binary files for Linux, macOS ARM64
 * **[Nathan](https://github.com/verygenericname)**: helped me a lot
 * **[0cyn](https://github.com/0cyn)** : decrypt keybag t8030
+* **[AppInstalleriOSGH](https://github.com/AppInstalleriOSGH)** : decrypt keybag t8020
