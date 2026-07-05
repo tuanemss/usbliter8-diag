@@ -70,7 +70,7 @@ esac
 if [ -z "$SOC_DIR" ]; then
     case "$MODEL" in
         # A12 Board IDs: N84AP (XR), D321AP (XS), D331PAP/D331AP (XS Max), J210AP/J211AP (Mini 5), J217AP/J218AP (Air 3), J171AP/J172AP (iPad 8)
-        *N841AP*|*D321AP*|*D331PAP*|*D331AP*|*J210AP*|*J211AP*|*J217AP*|*J218AP*|*J171AP*|*J172AP*)
+        *N841AP*|*D321AP*|*D331PAP*|*D331AP*|*J210AP*|*J211AP*|*J217AP*|*J218AP*|*J171AP*|*J172AP*|*J171aAP*|*J171AAP*|*J172aAP*|*J172AAP*)
             SOC_DIR="t8020"
             ;;
         # A13 Board IDs: N104AP (11), D421AP (11 Pro), D431AP (11 Pro Max), D79AP (SE 2020), J181AP/J182AP (iPad 9)
@@ -83,12 +83,23 @@ fi
 
 DEVICE_DIR="$MODEL"
 
+# Normalize iPad 8 board names to match the folder names (J171AP/J172AP instead of J171aAP/J172aAP)
+case "$DEVICE_DIR" in
+    *J171aAP*|*J171AAP*|*j171aAP*|*j171AAP*)
+        DEVICE_DIR="J171AP"
+        ;;
+    *J172aAP*|*J172AAP*|*j172aAP*|*j172AAP*)
+        DEVICE_DIR="J172AP"
+        ;;
+esac
+
 
 if [ -z "$DEVICE_DIR" ] && [ -n "$PRODUCT" ]; then
     case "$PRODUCT" in
         *IPHONE11,8*)            DEVICE_DIR="N841AP" ;;   # iPhone XR
         *IPHONE11,2*)            DEVICE_DIR="D321AP" ;;  # iPhone XS
-        *IPHONE11,4*|*IPHONE11,6*) DEVICE_DIR="D331PAP" ;; # iPhone XS Max
+        *IPHONE11,4*)            DEVICE_DIR="D331AP" ;;  # iPhone XS Max (Global)
+        *IPHONE11,6*)            DEVICE_DIR="D331PAP" ;; # iPhone XS Max (China)
         *IPHONE12,1*)            DEVICE_DIR="N104AP" ;;  # iPhone 11
         *IPHONE12,3*)            DEVICE_DIR="D421AP" ;;  # iPhone 11 Pro
         *IPHONE12,5*)            DEVICE_DIR="D431AP" ;;  # iPhone 11 Pro Max
