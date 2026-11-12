@@ -12,7 +12,11 @@ if [ "$OS_TYPE" = "Darwin" ]; then
         IRECOVERY="irecovery"
     fi
 elif [ "$OS_TYPE" = "Linux" ]; then
-    if [ -f "$(dirname "$0")/bin/linux/irecovery" ]; then
+    if [ "$ARCH_TYPE" = "aarch64" ] && [ -f "$(dirname "$0")/bin/linux/arm64/irecovery" ]; then
+        IRECOVERY="$(dirname "$0")/bin/linux/arm64/irecovery"
+    elif [ "$ARCH_TYPE" = "x86_64" ] && [ -f "$(dirname "$0")/bin/linux/x86_64/irecovery" ]; then
+        IRECOVERY="$(dirname "$0")/bin/linux/x86_64/irecovery"
+    elif [ -f "$(dirname "$0")/bin/linux/irecovery" ]; then
         IRECOVERY="$(dirname "$0")/bin/linux/irecovery"
     else
         IRECOVERY="irecovery"
